@@ -1,0 +1,41 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+	<PropertyGroup>
+		<TargetFramework>netcoreapp3.1</TargetFramework>
+		<AspNetCoreHostingModel>InProcess</AspNetCoreHostingModel>
+		<LangVersion>latest</LangVersion>
+		<UseNETCoreGenerator>true</UseNETCoreGenerator>
+		<!--
+		  https://www.tabsoverspaces.com/233608-stopping-msbuild-appending-targetframework-to-outputpath
+		  Stopping MSBuild appending TargetFramework to OutputPath
+		-->
+		<AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
+
+		<IsPackable>false</IsPackable>
+	</PropertyGroup>
+
+	<ItemGroup>
+	  <None Remove="integration-settings.json" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <Content Include="integration-settings.json">
+	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+	    <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+	    <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+	  </Content>
+	</ItemGroup>
+
+	<ItemGroup>
+		<PackageReference Include="Microsoft.AspNetCore.Mvc.Testing" Version="3.1.7" />
+		<PackageReference Include="Microsoft.NET.Test.Sdk" Version="16.7.1" />
+		<PackageReference Include="MSTest.TestAdapter" Version="2.1.1" />
+		<PackageReference Include="MSTest.TestFramework" Version="2.1.1" />
+		<PackageReference Include="coverlet.collector" Version="1.3.0" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<ProjectReference Include="..\ConfigureEFDbContext\ConfigureEFDbContext.csproj" />
+	</ItemGroup>
+
+</Project>

@@ -1,0 +1,16 @@
+{
+  "EntityFrameworkOptions": {
+    "Provider": "IN-MEMOR",
+    "CanMigrate": false
+    //"Provider": "SQLITE",
+    //"CanMigrate": true
+  },
+
+  "ConnectionStringsOptions": {
+    "ServerName": null,
+    "DatabaseName": "DEV-V1.db",
+    "UserId": null,
+    "Password": null
+  }
+
+}
